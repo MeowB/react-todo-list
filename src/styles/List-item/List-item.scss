@@ -1,0 +1,19 @@
+.list-item {
+	display: flex;
+	margin: 20px 0;
+	justify-content: space-between;
+
+
+	.left {
+		display: flex;
+
+		p {
+			padding-left: 15px;
+			text-align: start;
+		}
+	}
+
+	button {
+		margin-left: 60px;
+	}
+}
