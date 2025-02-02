@@ -1,0 +1,43 @@
+form {
+	input {
+		padding: 8px 10px 5px 10px;
+		border-radius: 5px;
+		border: 2px solid #80808080;
+	}
+
+	input[type='submit'] {
+		background-color: #90ee9090;
+		border: 2px solid #90ee90ff;
+		margin-left: 40px;
+	}
+
+}
+
+.list-item {
+	display: flex;
+	margin: 20px 0;
+	justify-content: space-between;
+	align-items: center;
+
+
+	div {
+		display: flex;
+
+		p {
+			padding-left: 15px;
+			text-align: start;
+		}
+	}
+
+	button {
+		padding: 8px 10px 5px 10px;
+		margin-left: 60px;
+		background-color: #ff000080;
+		border-radius: 5px;
+		border: 2px solid #ff0000ff;
+	}
+
+	path {
+		color: white;
+	}
+}

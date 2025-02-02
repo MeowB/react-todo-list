@@ -1,0 +1,34 @@
+form input {
+  padding: 8px 10px 5px 10px;
+  border-radius: 5px;
+  border: 2px solid rgba(128, 128, 128, 0.5019607843);
+}
+form input[type=submit] {
+  background-color: rgba(144, 238, 144, 0.5647058824);
+  border: 2px solid lightgreen;
+  margin-left: 40px;
+}
+
+.list-item {
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-item div {
+  display: flex;
+}
+.list-item div p {
+  padding-left: 15px;
+  text-align: start;
+}
+.list-item button {
+  padding: 8px 10px 5px 10px;
+  margin-left: 60px;
+  background-color: rgba(255, 0, 0, 0.5019607843);
+  border-radius: 5px;
+  border: 2px solid red;
+}
+.list-item path {
+  color: white;
+}/*# sourceMappingURL=list.css.map */
