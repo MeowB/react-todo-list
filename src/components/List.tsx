@@ -8,6 +8,7 @@ export default function List() {
 	let [todoList, setTodoList] = useState(todos)
 
 	const handleSubmit = (e: SyntheticEvent) => {
+		e.preventDefault()
 		const form = e.target as HTMLFormElement
 		const input = form.todoInput.value
 
