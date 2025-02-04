@@ -3,13 +3,15 @@ import './styles/index.css'
 import './styles/css-helpers/reset.css'
 import './styles/css-helpers/normalize.css'
 
-function App() {
 
+function App() {
 	return (
 		<>
 			<div className="center">
 				<header>
-					<h1>My Todo List</h1>
+					<div className="container">
+						<h1>My Todo List</h1>
+					</div>
 				</header>
 				<main>
 					<div className="container">

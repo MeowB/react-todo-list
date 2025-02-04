@@ -1,14 +1,17 @@
 [
 	{
 		"text": "do the dishes",
-		"id": 1
+		"id": 1,
+		"checked": false
 	},
 	{
 		"text": "do the food",
-		"id": 2
+		"id": 2,
+		"checked": false
 	},
 	{
 		"text": "do the grocery",
-		"id": 3
+		"id": 3,
+		"checked": false
 	}
 ]

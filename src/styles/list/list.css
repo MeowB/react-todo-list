@@ -9,22 +9,52 @@ form input[type=submit] {
   margin-left: 40px;
 }
 
-.list-item {
+.filter {
+  margin-top: 15px;
   display: flex;
-  margin: 20px 0;
+  justify-content: start;
+}
+.filter button {
+  padding: 8px 10px 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  background-color: rgba(173, 216, 230, 0.5647058824);
+  border: 2px solid lightblue;
+}
+
+.list-item {
+  margin-top: 25px;
+}
+.list-item form {
+  display: flex;
   justify-content: space-between;
+  width: 100%;
+}
+.list-item form .text {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
-.list-item div {
-  display: flex;
+.list-item form .text p {
+  margin-left: 10px;
 }
-.list-item div p {
-  padding-left: 15px;
-  text-align: start;
-}
-.list-item button {
+.list-item .buttons .edit-button {
   padding: 8px 10px 5px 10px;
-  margin-left: 60px;
+  margin-left: 5px;
+  background-color: rgba(0, 0, 255, 0.5019607843);
+  border-radius: 5px;
+  border: 2px solid #0000ff;
+}
+.list-item .buttons .validate-button {
+  padding: 8px 10px 5px 10px;
+  margin-left: 5px;
+  border-radius: 5px;
+  background-color: rgba(144, 238, 144, 0.3137254902);
+  border: 2px solid lightgreen;
+}
+.list-item .buttons .delete-button {
+  padding: 8px 10px 5px 10px;
+  margin-left: 5px;
   background-color: rgba(255, 0, 0, 0.5019607843);
   border-radius: 5px;
   border: 2px solid red;

@@ -10,31 +10,69 @@ form {
 		border: 2px solid #90ee90ff;
 		margin-left: 40px;
 	}
-
 }
 
-.list-item {
+.filter {
+	margin-top: 15px;
 	display: flex;
-	margin: 20px 0;
-	justify-content: space-between;
-	align-items: center;
-
-
-	div {
-		display: flex;
-
-		p {
-			padding-left: 15px;
-			text-align: start;
-		}
-	}
+	justify-content: start;
 
 	button {
 		padding: 8px 10px 5px 10px;
-		margin-left: 60px;
-		background-color: #ff000080;
+		margin-right: 5px;
 		border-radius: 5px;
-		border: 2px solid #ff0000ff;
+		background-color: #add8e690;
+		border: 2px solid #add8e6ff;
+	}
+}
+
+.list-item {
+
+	margin-top: 25px;
+
+	form {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+
+		.text {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			p {
+				margin-left: 10px;
+			}
+		}
+
+	}
+
+
+	.buttons {
+
+		.edit-button {
+			padding: 8px 10px 5px 10px;
+			margin-left: 5px;
+			background-color: #0000ff80;
+			border-radius: 5px;
+			border: 2px solid #0000ff;
+		}
+
+		.validate-button {
+			padding: 8px 10px 5px 10px;
+			margin-left: 5px;
+			border-radius: 5px;
+			background-color: #90ee9050;
+			border: 2px solid #90ee90ff;
+		}
+
+		.delete-button {
+			padding: 8px 10px 5px 10px;
+			margin-left: 5px;
+			background-color: #ff000080;
+			border-radius: 5px;
+			border: 2px solid #ff0000ff;
+		}
 	}
 
 	path {
