@@ -1,6 +1,5 @@
 import todos from '../../todos.json'
 import '../styles/list/list.css'
-import { FaTrashCan, FaPen, FaCheck } from "react-icons/fa6"
 import { SyntheticEvent, useEffect, useState } from 'react'
 import TodoForm from './TodoForm'
 import FilterButtons from './FilterButtons'
@@ -82,8 +81,8 @@ export default function List() {
 		e.preventDefault()
 		let newTodoList = todoList
 		let editList = onEdit
-		const target = e.target
-		let input = target[1].value
+		const target = e.target as HTMLFormElement
+		let input = target.editInput.value
 
 		if (input === '') input = todoList[index].text
 		newTodoList[index].text = input
