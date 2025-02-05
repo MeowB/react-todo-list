@@ -1,6 +1,6 @@
 import { FaTrashCan, FaPen, FaCheck } from "react-icons/fa6"
 
-export default function TodoItem({ item, index, handleCheck, handleEdit, handleEditValidation, handleDelete, onEdit }: any) {
+export default function TodoItem({ item, index, handleCheck, handleEdit, handleEditValidation, handleDelete, onEdit, filtered }: any) {
 
 	const linethrough = {
 		textDecoration: 'line-through',
@@ -8,7 +8,7 @@ export default function TodoItem({ item, index, handleCheck, handleEdit, handleE
 
 	return (
 		<li className="list-item" key={item.id}>
-			<form method='#' onSubmit={(e) => handleEditValidation(e, index)}>
+			<form method='#' onSubmit={(e) => handleEditValidation(e, index, filtered)}>
 				<div className='text'>
 					{item.checked
 						? <input onChange={() => handleCheck(index)} value={item.text} type="checkbox" checked />
@@ -25,7 +25,7 @@ export default function TodoItem({ item, index, handleCheck, handleEdit, handleE
 						? <button type='submit' className='validate-button'><FaCheck /></button>
 						: <a type="button" onClick={() => handleEdit(index)} className='edit-button'><FaPen /></a>
 					}
-					<button onClick={() => handleDelete(index)} className='delete-button'><FaTrashCan /></button>
+					<button onClick={(e) => handleDelete(e, index, filtered)} className='delete-button'><FaTrashCan /></button>
 				</div>
 			</form>
 		</li>

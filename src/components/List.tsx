@@ -34,18 +34,24 @@ export default function List() {
 
 
 	const filterDone = async () => {
+		setOnEdit(onEdit.fill(false))
+		setEditing(false)
 		setFiltering(true)
 		const newList = todoList.map((e: { checked: boolean }) => e.checked ? e : {}).filter((e: {}) => Object.keys(e).length !== 0)
 		setFilteredList(newList)
 	}
 
 	const filterUndone = async () => {
+		setOnEdit(onEdit.fill(false))
+		setEditing(false)
 		setFiltering(true)
 		const newList = todoList.map((e: { checked: boolean }) => e.checked ? {} : e).filter((e: {}) => Object.keys(e).length !== 0)
 		setFilteredList(newList)
 	}
 
 	const filterAll = async () => {
+		setEditing(false)
+		setOnEdit(onEdit.fill(false))
 		setFiltering(false)
 	}
 
@@ -77,28 +83,49 @@ export default function List() {
 		setEditing(true)
 	}
 
-	const handleEditValidation = async (e: SyntheticEvent, index: number) => {
+	const handleEditValidation = async (e: SyntheticEvent, index: number, filtered: boolean) => {
 		e.preventDefault()
-		let newTodoList = todoList
+
+		let newTodoList
 		let editList = onEdit
 		const target = e.target as HTMLFormElement
 		let input = target.editInput.value
 
 		if (input === '') input = todoList[index].text
-		newTodoList[index].text = input
-		editList[index] = false
+		
+		if (filtered) {
+			newTodoList = filteredList
+			newTodoList[index].text = input
+			setFilteredList(newTodoList)
+			
+		} else {
+			newTodoList = todoList
+			newTodoList[index].text = input
+			setTodoList(newTodoList)
+		}
 
+		editList[index] = false
 		setOnEdit(editList)
-		setTodoList(newTodoList)
 		setEditing(false)
 		saveData()
 	}
 
 
-	const handleDelete = (index: number) => {
-		setTodoList(todoList.filter((element: {}, i: number) => element ? i + 1 != index + 1 : ''))
+	const handleDelete = (e: SyntheticEvent, index: number, filtered: boolean) => {
+		e.preventDefault()
+		let listCopy = todoList
+		if (filtered) {
+			setFilteredList(filteredList.filter((element: {}, i: number) => element ? i + 1 != index + 1 : ''))
 
+		} else {
+			setTodoList(todoList.filter((element: {}, i: number) => element ? i + 1 != index + 1 : ''))
+		}
+
+		delete listCopy[todoList.findIndex((el: string) => el === filteredList[index])]
+		listCopy = listCopy.filter((el: {}) => el !== null)
+		setTodoList(listCopy)
 	}
+
 
 
 	return <>
@@ -115,6 +142,7 @@ export default function List() {
 						handleEditValidation={handleEditValidation}
 						handleDelete={handleDelete}
 						onEdit={onEdit}
+						filtered={false}
 					/>
 				)
 				: filteredList.map((item: { text: string, id: number }, index: number) =>
@@ -126,6 +154,7 @@ export default function List() {
 						handleEditValidation={handleEditValidation}
 						handleDelete={handleDelete}
 						onEdit={onEdit}
+						filtered={true}
 					/>
 				)
 			}
